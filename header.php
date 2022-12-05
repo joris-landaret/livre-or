@@ -6,9 +6,9 @@
 
         <div>
             <ul>
-                <li><a href="http://module-connexion/">Accueil</a></li>
-                <li><a href="http://module-connexion/connexion.php">Connexion</a></li>
-                <li><a href="http://module-connexion/inscription.php">Inscription</a></li>
+                <li><a href="http://livre-or/">Accueil</a></li>
+                <li><a href="http://livre-or/connexion.php">Connexion</a></li>
+                <li><a href="http://livre-or/inscription.php">Inscription</a></li>
                 <li>Profil</li>
             </ul>
         </div>

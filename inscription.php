@@ -2,36 +2,54 @@
 
 // connection à la base de donné
 include('connect.php');
-//$mysqli = mysqli_connect("localhost","root","","moduleconnexion",3307);
 
-//var_dump($mysqli);
+$request = $mysqli -> query("SELECT * FROM utilisateurs");
 
-$request = $mysqli -> query("SELECT login, password FROM utilisateurs");
-
-//var_dump($request);
-
-$request_fetch_all = $request -> fetch_assoc();
+$request_fetch_all = $request -> fetch_all();
 
 var_dump($request_fetch_all);
-
-// si requéte égale à post alors
-
-//while(isset($request_fetch_all)){
-    if(isset($request_fetch_all['login']) == isset($_POST['log']) && isset($request_fetch_all['password']) == isset($_POST['pass'])){
-        
-        $log = $_POST['log'];
-        $pass = $_POST['pass'];
-        $login = $request_fetch_all['login'];
-        $password = $request_fetch_all['password'];
-
-        var_dump($login);
-        echo 'Bienvennu '.$login;
-
-        //session_start();
+echo "ok";
+//appuyé sur le bouton submit
+if(isset($_POST['envoi'])){
     
+    //si les champs sont remplis
+    if($_POST['login'] && $_POST['password'] && $_POST['confirmpassword']){
+        
+        $login = $_POST['login'];
+        $pass = $_POST['password'];
+        $confirmpass = $_POST['confirmpassword'];
+
+        //si les passwords son identique 
+        if ($pass == $confirmpass){
+            
+
+            //si login n'est pas le même
+            $log_ok = false;
+                //
+            foreach($request_fetch_all as $user){
+                if($login == $user [1]){
+                    $log_ok = false;
+                    //break;
+                }
+                else{$log_ok = true;}
+            }
+            
+            if($log_ok == true){
+
+                $sql = "INSERT INTO `utilisateurs` (`login`,`password`) 
+                VALUE ('$login','$pass')";
+                $request2 = $mysqli -> query($sql);
+                //echo "ok";
+                //header("location:connexion.php");
+
+            }
+            else{echo "Le nom du login est déja utilisé";}
+            
+        }
+        else{echo "les mots de passes ne sont pas identique";}
     }
-    else{}
-//}
+    else{echo "veuillez remplir tous les champs";}
+}
 
 ?>
 
@@ -42,9 +60,9 @@ var_dump($request_fetch_all);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connexion</title>
+    <title>Inscription</title>
     <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/connexion.css">
+    <link rel="stylesheet" href="css/inscription.css">
 </head>
 
 <body>
@@ -52,15 +70,18 @@ var_dump($request_fetch_all);
     <main>
 
         <div>
-            <h1>Connecte toi vite !!!</h1>
+            <h1>Inscrit toi !!!</h1>
             <form action="" method="post">
                 <label for="login">Login</label>
-                <Input type="text" name="login"></Input>
+                <Input type="text" name="login">
 
                 <label for="password">Password</label>
-                <Input type="text" name="password"></Input>
+                <Input type="text" name="password">
 
-                <input type="submit" name="vite" value="vite !!!">
+                <label for="confirmpassword">Confirmation de password</label>
+                <Input type="text" name="confirmpassword">
+
+                <input type="submit" name="envoi">
             </form>
         </div>
 

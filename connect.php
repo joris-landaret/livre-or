@@ -1,7 +1,7 @@
 <?php
 // connection à la base de donné
 
-$mysqli = new mysqli("localhost","root","","moduleconnexion",3307);
+$mysqli = new mysqli("localhost","root","","livreor",3307);
 
 if ($mysqli) {
     echo "connexion établie <br />";
