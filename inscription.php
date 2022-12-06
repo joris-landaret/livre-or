@@ -40,7 +40,7 @@ if(isset($_POST['envoi'])){
                 VALUE ('$login','$pass')";
                 $request2 = $mysqli -> query($sql);
                 //echo "ok";
-                //header("location:connexion.php");
+                header("location:connexion.php");
 
             }
             else{echo "Le nom du login est déja utilisé";}
