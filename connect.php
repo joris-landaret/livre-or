@@ -1,5 +1,5 @@
 <?php
-// connection à la base de donné
+// connexion à la base de donné
 
 $mysqli = new mysqli("localhost","root","","livreor",3307);
 
