@@ -26,3 +26,7 @@ h1{
     display: flex;
     justify-content: center;
 }
+textarea{
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
