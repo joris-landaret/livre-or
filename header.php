@@ -13,7 +13,9 @@
                 <?php else: ?>
                 <li><a href="http://livre-or/connexion.php">Connexion</a></li>
                 <li><a href="http://livre-or/inscription.php">Inscription</a></li>
-                <?php endif; ?> 
+                <?php endif; ?>
+                <li><a href="http://livre-or/commentaire">Commentaire</a></li>
+                <li><a href="http://livre-or/livre-or">Livre d'or</a></li>
             </ul>
         </div>
 
