@@ -10,45 +10,29 @@ $request_fetch_all = $request -> fetch_all();
 var_dump($request_fetch_all);
 //echo "ok";
 //$_SESSION['login'] = $user[1];
-if(isset($_POST['log_envoi'])){
-    
-    //si les champs sont remplis
-    if($_POST['login']){
-        
-        $login = $_POST['login'];
-
-        $sql = "UPDATE utilisateurs 
-        SET login = '$login'
-        WHERE id = ".$_SESSION['id']."";
-        $request2 = $mysqli -> query($sql);
-
-    }
-    else{echo "veuillez remplir tous les champs";}
-}
-
-//appuyé sur le bouton submit
 if(isset($_POST['envoi'])){
     
     //si les champs sont remplis
-    if($_POST['password'] && $_POST['confirmpassword']){
+    if($_POST['commment']){
         
-        $pass = $_POST['password'];
-        $confirmpass = $_POST['confirmpassword'];
+        $comment = $_POST['commment'];
 
-        //si les passwords son identique 
-        if ($pass == $confirmpass){
+        $mysqli = new mysqli("localhost","root","","livreor",3307);
 
-            $password = $_POST['password'];
+        $request = $mysqli -> query("SELECT * FROM commentaires");
 
-            $sql = "UPDATE utilisateurs 
-            SET password = '$password'
-            WHERE id = ".$_SESSION['id']."";
-            $request2 = $mysqli -> query($sql);
-            
-        }
-        else{echo "les mots de passes ne sont pas identique";}
+        $request_fetch_all = $request -> fetch_all();
+
+        var_dump($request_fetch_all);
+
+        $sql = "INSERT INTO `commentaires` (`commentaire`,`id_utilisateur`,`date`) 
+        VALUE ('$comment',".$_SESSION['id'].", NOW() )";
+        $request2 = $mysqli -> query($sql);
+        //echo "ok";
+        //header("location:connexion.php");
+        
     }
-    //else{echo "veuillez remplir tous les champs";}
+    else{echo "veuillez remplir tous les champs";}
 }
 
 ?>
@@ -75,7 +59,7 @@ if(isset($_POST['envoi'])){
             <form action="" method="post">
                 
                 <label for="commentaire">Insérer votre commentaire</label>
-                <textarea cols="10" rows="10" wrap="hard"></textarea>
+                <textarea name="commment" cols="10" rows="10" wrap="hard"></textarea>
 
                 <input type="submit" name="envoi">
             </form>
