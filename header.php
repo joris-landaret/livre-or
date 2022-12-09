@@ -1,6 +1,6 @@
 <header>
         <div>
-            <img src="img/images.jpg" alt="">
+            <img src="img/rainbow_mountain.jpg" alt="">
             <h1>Insolite rainbow</h1>
         </div>
 
