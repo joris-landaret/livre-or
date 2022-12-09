@@ -24,7 +24,7 @@ header ul{
     
 }
 header ul li{
-    border: 5px solid cyan;
+    /*border: 5px solid cyan;*/
     display: flex;
     align-items: center;
 }
