@@ -8,7 +8,7 @@ img{
 header{
     margin-bottom: 5%;
     box-shadow: 0% 0% 0% 0%;
-    border: yellow solid 5px;
+    /*border: yellow solid 5px;*/
     display: flex;
     justify-content: space-around;
     background: linear-gradient(155deg, rgba(212,16,16,1) 7%, rgba(243,154,67,1) 17%, rgba(247,240,24,1) 31%, rgba(94,247,24,1) 45%, rgba(24,90,247,1) 59%, rgba(187,24,247,1) 73%, rgba(243,24,247,1) 87%); 
@@ -17,7 +17,7 @@ header div{
     display: flex;
 }
 header ul{
-    border: 5px solid rgb(255, 0, 0);
+    /*border: 5px solid rgb(255, 0, 0);*/
     display: flex;
     justify-content: space-around;
     width: 100%;
