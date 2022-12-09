@@ -10,7 +10,7 @@ footer div{
 footer div a{
     display: flex;
     align-items: center;
-    border: 5px solid rgb(255, 17, 0);
+    /* border: 5px solid rgb(255, 17, 0); */
     width: 10%;
     justify-content: center;
 }
