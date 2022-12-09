@@ -32,7 +32,7 @@ $request = $mysqli -> query("SELECT login,date, commentaire
     <main>
 
         <div>
-            <h1>Commentaire</h1>
+            <h1>Livre d'or</h1>
             
             <form action="" method="post">
 
