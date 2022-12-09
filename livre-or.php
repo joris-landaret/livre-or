@@ -25,6 +25,7 @@ $request = $mysqli -> query("SELECT login,date, commentaire
     <title>livre d'or</title>
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/livre-or.css">
+    <link rel="stylesheet" href="css/footer.css">
 </head>
 
 <body>

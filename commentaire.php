@@ -47,6 +47,7 @@ if(isset($_POST['envoi'])){
     <title>Profil</title>
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/commentaire.css">
+    <link rel="stylesheet" href="css/footer.css">
 </head>
 
 <body>

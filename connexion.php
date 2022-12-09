@@ -64,6 +64,7 @@ if(isset($_POST['vite'])){
     <title>Connexion</title>
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/connexion.css">
+    <link rel="stylesheet" href="css/footer.css">
 </head>
 
 <body>
