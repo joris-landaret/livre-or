@@ -25,3 +25,6 @@ header ul li{
     display: flex;
     align-items: center;
 }
+.liste{
+    width: 100%;
+}
