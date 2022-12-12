@@ -1,5 +1,5 @@
 <?php
-
+$erreur = "";
 // connection à la base de donné
 include('connect.php');
 
@@ -8,7 +8,7 @@ $request = $mysqli -> query("SELECT * FROM utilisateurs");
 $request_fetch_all = $request -> fetch_all();
 
 var_dump($request_fetch_all);
-echo "ok";
+
 //appuyé sur le bouton submit
 if(isset($_POST['envoi'])){
     
@@ -43,12 +43,12 @@ if(isset($_POST['envoi'])){
                 header("location:connexion.php");
 
             }
-            else{echo "Le nom du login est déja utilisé";}
+            else{$erreur = '<p style = "color:red; font-weight:bold ">Le nom du login est déja utilisé</p>';}
             
         }
-        else{echo "les mots de passes ne sont pas identique";}
+        else{$erreur = '<p style = "color:red; font-weight:bold ">les mots de passes ne sont pas identique</p>';}
     }
-    else{echo "veuillez remplir tous les champs";}
+    else{$erreur = '<p style = "color:red; font-weight:bold ">veuillez remplir tous les champs</p>';}
 }
 
 ?>
@@ -72,6 +72,8 @@ if(isset($_POST['envoi'])){
 
         <div>
             <h1>Inscrit toi !!!</h1>
+            <br>
+            <?= $erreur ?>
             <form action="" method="post">
                 <label for="login">Login</label>
                 <Input type="text" name="login">
