@@ -15,7 +15,15 @@
     <?php session_start();
     include('header.php') ?>
     <main>
-
+        <div>
+            <h1>Bienvenu à "Insolite Rainbow</h1>
+            <p>
+                Ici vous trouverez le livre d'or du site
+            </p>
+            <p>
+                Pour ajouter un commentaire vous drevez vous inscrire et/ou vous connecter
+            </p>
+        </div>
     </main>
     <?php include('footer.php') ?>
 </body>
