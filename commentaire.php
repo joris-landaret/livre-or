@@ -23,7 +23,7 @@ if (isset($_POST['envoi'])) {
 
         $request_fetch_all = $request->fetch_all();
 
-        var_dump($request_fetch_all);
+        //var_dump($request_fetch_all);
 
         $sql = "INSERT INTO `commentaires` (`commentaire`,`id_utilisateur`,`date`) 
         VALUE ('$comment'," . $_SESSION['id'] . ", NOW() )";

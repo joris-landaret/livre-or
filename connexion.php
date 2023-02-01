@@ -36,7 +36,7 @@ if (isset($_POST['vite'])) {
                 //echo "bienvenu ".$user[1];
                 //echo "salut ça marche";
                 //break;
-                echo "ok2";
+                //echo "ok2";
                 $_SESSION['login'] = $user[1];
                 $_SESSION['id'] = $user[0];
                 header("location:index.php");
