@@ -6,13 +6,17 @@ main{
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+    display: flex;
+
 }
 main div {
     display: flex;
     flex-direction: column;
-    border: blue 5px solid;
-    margin-left: 10%;
-    margin-right: 10%;
+    background-color: #0000003d;
+    color: whitesmoke;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 div form{
     /*background-color: blueviolet;*/
@@ -25,10 +29,8 @@ div form{
 input{
     padding: 10px;
     margin-bottom: 20px;
-    border: 10px solid green;
 }
 h1{
-    border: 10px solid rgb(0, 105, 128);
     /*color: blueviolet;*/
     display: flex;
     justify-content: center;
