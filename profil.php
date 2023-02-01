@@ -3,50 +3,50 @@ session_start();
 // connection à la base de donné
 include('connect.php');
 
-$request = $mysqli -> query("SELECT * FROM utilisateurs");
+$request = $mysqli->query("SELECT * FROM utilisateurs");
 
-$request_fetch_all = $request -> fetch_all();
+$request_fetch_all = $request->fetch_all();
 
-var_dump($request_fetch_all);
+//var_dump($request_fetch_all);
 //echo "ok";
 //$_SESSION['login'] = $user[1];
-if(isset($_POST['log_envoi'])){
-    
+if (isset($_POST['log_envoi'])) {
+
     //si les champs sont remplis
-    if($_POST['login']){
-        
+    if ($_POST['login']) {
+
         $login = $_POST['login'];
 
         $sql = "UPDATE utilisateurs 
         SET login = '$login'
-        WHERE id = ".$_SESSION['id']."";
-        $request2 = $mysqli -> query($sql);
-
+        WHERE id = " . $_SESSION['id'] . "";
+        $request2 = $mysqli->query($sql);
+    } else {
+        echo "veuillez remplir tous les champs";
     }
-    else{echo "veuillez remplir tous les champs";}
 }
 
 //appuyé sur le bouton submit
-if(isset($_POST['envoi'])){
-    
+if (isset($_POST['envoi'])) {
+
     //si les champs sont remplis
-    if($_POST['password'] && $_POST['confirmpassword']){
-        
+    if ($_POST['password'] && $_POST['confirmpassword']) {
+
         $pass = $_POST['password'];
         $confirmpass = $_POST['confirmpassword'];
 
         //si les passwords son identique 
-        if ($pass == $confirmpass){
+        if ($pass == $confirmpass) {
 
             $password = $_POST['password'];
 
             $sql = "UPDATE utilisateurs 
             SET password = '$password'
-            WHERE id = ".$_SESSION['id']."";
-            $request2 = $mysqli -> query($sql);
-            
+            WHERE id = " . $_SESSION['id'] . "";
+            $request2 = $mysqli->query($sql);
+        } else {
+            echo "les mots de passes ne sont pas identique";
         }
-        else{echo "les mots de passes ne sont pas identique";}
     }
     //else{echo "veuillez remplir tous les champs";}
 }
@@ -72,7 +72,7 @@ if(isset($_POST['envoi'])){
 
         <div>
             <h1>Profil</h1>
-            <?php echo "Your login : ".$_SESSION['login']; ?>
+            <?php echo "Your login : " . $_SESSION['login']; ?>
             <form action="" method="post">
                 <label for="login">Login change</label>
                 <Input type="text" name="login">
