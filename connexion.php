@@ -13,7 +13,7 @@ $request = $mysqli->query("SELECT * FROM utilisateurs");
 
 $request_fetch_all = $request->fetch_all();
 
-var_dump($request_fetch_all);
+//var_dump($request_fetch_all);
 //var_dump($request_fetch_all[2]);
 
 
