@@ -2,7 +2,7 @@
 
 main{
     height: 82vh;
-    background-image: url("../img/peru-r.jpg");
+    background-image: url("../img/peru-rr.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -16,6 +16,7 @@ main div {
     margin-left: 40%;
     margin-right: 40%;
     align-items: center;
+    color: white;
 }
 
 div form{
