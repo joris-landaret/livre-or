@@ -8,26 +8,23 @@ main{
     background-attachment: fixed;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 main div {
     display: flex;
     flex-direction: column;
-    margin-left: 40%;
-    margin-right: 40%;
     align-items: center;
+    color: white;
+    background-color: #0000003d;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
 }
 
-div form{
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
+p{
+    margin-top: 1%;
 }
-input{
-    padding: 10px;
-    margin-bottom: 20px;
-}
-
 h1{
     display: flex;
     justify-content: center;
