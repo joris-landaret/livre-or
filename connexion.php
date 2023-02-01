@@ -7,30 +7,30 @@ $message = "";
 
 //var_dump($mysqli);
 
-$request = $mysqli -> query("SELECT * FROM utilisateurs");
+$request = $mysqli->query("SELECT * FROM utilisateurs");
 
 //var_dump($request);
 
-$request_fetch_all = $request -> fetch_all();
+$request_fetch_all = $request->fetch_all();
 
 var_dump($request_fetch_all);
 //var_dump($request_fetch_all[2]);
 
 
 //appuyé sur le bouton submit
-if(isset($_POST['vite'])){
-    
+if (isset($_POST['vite'])) {
+
     //si les champs sont remplis
-    if($_POST['login'] && $_POST['password']){
-        
+    if ($_POST['login'] && $_POST['password']) {
+
         $login = $_POST['login'];
         $pass = $_POST['password'];
-        
+
         $log_ok = false;
         //var_dump($log_ok);
 
-        foreach($request_fetch_all as $user ){
-            if($login === $user[1] && $pass === $user[2]){
+        foreach ($request_fetch_all as $user) {
+            if ($login === $user[1] && $pass === $user[2]) {
                 $log_ok = true;
                 //var_dump($log_ok);
                 //echo "bienvenu ".$user[1];
@@ -40,16 +40,15 @@ if(isset($_POST['vite'])){
                 $_SESSION['login'] = $user[1];
                 $_SESSION['id'] = $user[0];
                 header("location:index.php");
-
-            }
-            else {
+            } else {
                 echo "login ou mdp mauvais";
                 //break;
                 $log_ok = false;
             }
-        } 
+        }
+    } else {
+        echo "veuillez remplir tous les champs";
     }
-    else{echo "veuillez remplir tous les champs";}
 }
 
 ?>
@@ -72,13 +71,13 @@ if(isset($_POST['vite'])){
     <main>
 
         <div>
-        <h1>Connecte toi vite !!!</h1>
+            <h1>Connecte toi vite !!!</h1>
             <form action="" method="post">
                 <label for="login">Login</label>
                 <Input type="text" name="login"></Input>
 
                 <label for="password">Password</label>
-                <Input type="text" name="password"></Input>
+                <Input type="password" name="password"></Input>
 
                 <input type="submit" name="vite" value="vite !!!">
             </form>
@@ -91,7 +90,7 @@ if(isset($_POST['vite'])){
 
 </html>
 
-<?php 
+<?php
 
 /*
  //decriptage mot de passe
