@@ -3,36 +3,37 @@ session_start();
 // connection à la base de donné
 include('connect.php');
 
-$request = $mysqli -> query("SELECT * FROM utilisateurs");
+$request = $mysqli->query("SELECT * FROM utilisateurs");
 
-$request_fetch_all = $request -> fetch_all();
+$request_fetch_all = $request->fetch_all();
 
-var_dump($request_fetch_all);
+//var_dump($request_fetch_all);
 //echo "ok";
 //$_SESSION['login'] = $user[1];
-if(isset($_POST['envoi'])){
-    
+if (isset($_POST['envoi'])) {
+
     //si les champs sont remplis
-    if($_POST['commment']){
-        
+    if ($_POST['commment']) {
+
         $comment = $_POST['commment'];
 
-        $mysqli = new mysqli("localhost","root","","livreor",3307);
+        $mysqli = new mysqli("localhost", "root", "", "livreor", 3307);
 
-        $request = $mysqli -> query("SELECT * FROM commentaires");
+        $request = $mysqli->query("SELECT * FROM commentaires");
 
-        $request_fetch_all = $request -> fetch_all();
+        $request_fetch_all = $request->fetch_all();
 
         var_dump($request_fetch_all);
 
         $sql = "INSERT INTO `commentaires` (`commentaire`,`id_utilisateur`,`date`) 
-        VALUE ('$comment',".$_SESSION['id'].", NOW() )";
-        $request2 = $mysqli -> query($sql);
+        VALUE ('$comment'," . $_SESSION['id'] . ", NOW() )";
+        $request2 = $mysqli->query($sql);
         //echo "ok";
         //header("location:connexion.php");
-        
+
+    } else {
+        echo "veuillez remplir tous les champs";
     }
-    else{echo "veuillez remplir tous les champs";}
 }
 
 ?>
@@ -56,9 +57,9 @@ if(isset($_POST['envoi'])){
 
         <div>
             <h1>Commentaire</h1>
-            
+
             <form action="" method="post">
-                
+
                 <label for="commentaire">Insérer votre commentaire</label>
                 <textarea name="commment" cols="10" rows="10" wrap="hard"></textarea>
 
