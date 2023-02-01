@@ -15,9 +15,9 @@ if (isset($_POST['envoi'])) {
     //si les champs sont remplis
     if ($_POST['login'] && $_POST['password'] && $_POST['confirmpassword']) {
 
-        $login = $_POST['login'];
-        $pass = $_POST['password'];
-        $confirmpass = $_POST['confirmpassword'];
+        $login = htmlspecialchars($_POST['login'], ENT_QUOTES);
+        $pass = htmlspecialchars($_POST['password'], ENT_QUOTES);
+        $confirmpass = htmlspecialchars($_POST['confirmpassword'], ENT_QUOTES);
 
         //si les passwords son identique 
         if ($pass == $confirmpass) {

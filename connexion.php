@@ -23,8 +23,8 @@ if (isset($_POST['vite'])) {
     //si les champs sont remplis
     if ($_POST['login'] && $_POST['password']) {
 
-        $login = $_POST['login'];
-        $pass = $_POST['password'];
+        $login = htmlspecialchars($_POST['login'], ENT_QUOTES);
+        $pass = htmlspecialchars($_POST['password'], ENT_QUOTES);
 
         $log_ok = false;
         //var_dump($log_ok);
