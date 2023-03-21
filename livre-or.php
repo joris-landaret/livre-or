@@ -3,7 +3,7 @@ session_start();
 // connection à la base de donné
 include('connect.php');
 
-$request = $mysqli -> query("SELECT login,date, commentaire 
+$request = $mysqli->query("SELECT login,date, commentaire 
                             FROM utilisateurs
                             INNER JOIN commentaires
                             on utilisateurs.id = commentaires.id_utilisateur
@@ -34,29 +34,29 @@ $request = $mysqli -> query("SELECT login,date, commentaire
 
         <div>
             <h1>Livre d'or</h1>
-            
+
             <form action="" method="post">
 
-                <table border="5" cellspacing="5" cellpadding="5" bgcolor=""> 
-                    <tr> 
+                <table border="5" cellspacing="5" cellpadding="5" bgcolor="">
+                    <tr>
                         <th>login</th>
-                        <th>date</th> 
+                        <th>date</th>
                         <th>commentaire</th>
-                    </tr> 
+                    </tr>
                     <?php
-                    
-                    while($request_fetch_all = $request -> fetch_array()){
-                     
+
+                    while ($request_fetch_all = $request->fetch_array()) {
+
                         echo "<tr>
-                                <td>".$request_fetch_all['login']."</td>
-                                <td>".$request_fetch_all['date']."</td>
-                                <td>".$request_fetch_all['commentaire']."</td> 
+                                <td>" . $request_fetch_all['login'] . "</td>
+                                <td>" . $request_fetch_all['date'] . "</td>
+                                <td>" . $request_fetch_all['commentaire'] . "</td> 
                               </tr>";
                     }
-                    
+
                     ?>
-                    
-                    
+
+
                 </table>
             </form>
         </div>
